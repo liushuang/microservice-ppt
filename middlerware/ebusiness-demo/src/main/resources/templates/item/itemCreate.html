@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="common::commonHeader('Create Item')"></head>
+<body>
+<div th:include="common::commonNav"></div>
+名称：
+<input type="text" id="name" /><br/>
+描述：
+<input type="text" id="description" /><br/>
+价格：
+<input type="number" id="price" /><br/>
+数量：
+<input type="number" id="quantity" /><br/>
+<button id="register">发布商品</button>
+
+<div th:include="common::commonFooter"></div>
+</body>
+<script
+src="https://code.jquery.com/jquery-2.2.4.min.js"
+integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+crossorigin="anonymous"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#register").click(function () {
+      $.ajax({
+        type: "POST",
+        url: "/item/publish",
+        data: JSON.stringify({
+          name: $("#name").val(),
+          description: $("#description").val(),
+          price: $("#price").val(),
+          quantity: $("#quantity").val()
+        }),
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        success: function (result) {
+          alert("success");
+        },
+        error: function () {
+          alert("error");
+        }
+      });
+    });
+  });
+</script>
+</html>

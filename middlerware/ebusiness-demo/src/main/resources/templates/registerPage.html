@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="common::commonHeader('注册')"></head>
+<body>
+<div th:include="common::commonNav"></div>
+用户名：
+<input type="text" id="name" />
+密码：
+<input type="password" id="password" />
+<button id="register">注册</button>
+<div th:include="common::commonFooter"></div>
+</body>
+<script
+src="https://code.jquery.com/jquery-2.2.4.min.js"
+integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+crossorigin="anonymous"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#register").click(function () {
+      $.ajax({
+        type: "POST",
+        url: "/register",
+        data: JSON.stringify({
+          name: $("#name").val(),
+          password: $("#password").val()
+        }),
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        success: function (result) {
+          alert("success");
+        },
+        error: function () {
+          alert("error");
+        }
+      });
+    });
+  });
+</script>
+</html>

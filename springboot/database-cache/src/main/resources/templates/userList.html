@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>UserList</title>
+</head>
+<body>
+<h2>This is userList page</h2>
+<div>
+  <table>
+    <thead>
+      <tr>
+        <td>id</td>
+        <td>name</td>
+        <td>createdTime</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="user : ${userList}">
+        <td>
+          <span th:text="${user.id}"></span>
+          <span th:if="${user.id} > 10">(id大于10)</span>
+        </td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.createdTime}"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

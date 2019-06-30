@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head th:replace="common::commonHeader('主页')"></head>
+    <body>
+    <div th:include="common::commonNav"></div>
+        <p>Click <a th:href="@{/hello}">here</a> to see a greeting.</p>
+    <div th:include="common::commonFooter"></div>
+    </body>
+</html>

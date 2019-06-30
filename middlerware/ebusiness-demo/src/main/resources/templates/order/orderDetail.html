@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="common::commonHeader('Item Detail')"></head>
+<body>
+<div th:include="common::commonNav"></div>
+orderId:<span th:text="${orderView.order.id}"></span><br/>
+buyer name:<span th:text="${orderView.buyer.name}"></span><br/>
+seller name:<span th:text="${orderView.seller.name}"></span><br/>
+item name:<span th:text="${orderView.item.name}"></span><br/>
+item description:<span th:text="${orderView.item.description}"></span><br/>
+item price:<span th:text="${orderView.item.price}"></span><br/>
+
+<div th:include="common::commonFooter"></div>
+</body>
+</html>
